@@ -1,5 +1,6 @@
 import mariadb
 import matplotlib.pyplot as plt
+import sys
 
 try:
     connection = mariadb.connect (
@@ -14,13 +15,43 @@ except:
 
 cur = connection.cursor()
 
-#creat a list for saved datas on that.
 data = [()]
-#collect data from database
-cur.execute(
-    "SELECT data FROM felurencet", 
-    (data)
-)
+print("please select the place to record data: \n(1): out-day\n(2): out-night\n(3): ind-day\n(ku4): ind-night")
+def inDay():
+    cur.execute("SELECT data FROM felurencet", (data))
+    print("in-day added...\n")
+
+def outDay():
+    cur.execute("SELECT outDay FROM felu-outday",(data))
+    print("out-day added...\n")
+
+
+def outNight():
+    cur.execute("SELECT outNight FROM felu-outNight",(data))
+    print("out-night added...\n")
+
+
+def inNight():
+    cur.execute("SELECT inDay FROM felu-indoNight",(data))
+    print("in-night added...\n")
+
+print("typre yours:")
+x = input()
+if x == '1':
+    inDay()
+elif x == '2':
+    outDay()
+elif x == '3':
+    outNight()
+elif x == '4':
+    inNight()
+else:
+    print("invalid number. you should choose 1-4")
+    sys.exit()
+
+
+
+
 #saved deformed data in new list.
 sdta = []
 #loops for add data to new list one by one
