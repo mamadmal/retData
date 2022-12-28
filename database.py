@@ -9,14 +9,15 @@ try:
     port=3306,
     database="ldrFor"
 )
-    print("connected!")
+    print("connected to DB!")
 except:
     print("ohhh no!")
+    sys.exit()
 
 cur = connection.cursor()
 
-data = [()]
-print("please select the place to record data: \n(1): out-day\n(2): out-night\n(3): ind-day\n(ku4): ind-night")
+data = [()] #define a list for store data that come from DB
+print("please select the place to record data: \n(1): out-day\n(2): out-night\n(3): ind-day\n(14): ind-night")
 def inDay():
     cur.execute("SELECT data FROM felurencet", (data))
     print("in-day added...\n")
@@ -48,9 +49,6 @@ elif x == '4':
 else:
     print("invalid number. you should choose 1-4")
     sys.exit()
-
-
-
 
 #saved deformed data in new list.
 sdta = []
