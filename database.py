@@ -26,11 +26,9 @@ def outDay():
     cur.execute("SELECT outDay FROM felu-outday",(data))
     print("out-day added...\n")
 
-
 def outNight():
     cur.execute("SELECT outNight FROM felu-outNight",(data))
     print("out-night added...\n")
-
 
 def inNight():
     cur.execute("SELECT inDay FROM felu-indoNight",(data))
@@ -60,17 +58,17 @@ for data in cur:
 print(sdta[1:])
 #give the number of list
 total = len(sdta)
-print(total)
+print("the total number: ",total)
 #do sum for whole element of list
 myList = 1
 for i in range(total):
     myList = myList + sdta[i]
-print(myList)
+print("sum: ",myList)
 #calc of mid.
 mid = myList / total
 print("the mid:",mid)
 
-#for x-anxis of classter we need to some number
+#for x-anxis of plot we need to some numbers
 id = []
 for i in range(total):
     id.append(i)
